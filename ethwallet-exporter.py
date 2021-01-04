@@ -42,14 +42,14 @@ def pytherium():
         sys.stdout = f # Change the standard output to the file we created.
         print('# HELP etherscan_wallet_main Balance of eth wallet fetched via etherscan.')
         print('# TYPE etherscan_wallet_main gauge')
-        print('etherscan_wallet_main{wallet=','"',wallets["ACCOUNT-NAME"],'", ','name="ETH"',', ','type="coin"}',' ',myeth['ACCOUNT-NAME'],sep='')
-        print('etherscan_wallet_main{wallet=','"',wallets['ACCOUNT-NAME'],'", ','name="WBTC"',', ','type="token"}',' ',mytokens["WBTC"],sep='')
-        print('etherscan_wallet_main{wallet=','"',wallets['ACCOUNT-NAME'],'", ','name="UNI"',', ','type="token"}',' ',mytokens["UNI"],sep='')
-        print('etherscan_wallet_main{wallet=','"',wallets['ACCOUNT-NAME'],'", ','name="DAI"',', ','type="token"}',' ',mytokens["DAI"],sep='')
-        print('etherscan_wallet_main{wallet=','"',wallets['ACCOUNT-NAME'],'", ','name="DPI"',', ','type="token"}',' ',mytokens["DPI"],sep='')
-        print('etherscan_wallet_main{wallet=','"',wallets['ACCOUNT-NAME'],'", ','poolname="WBTC"',', ','type="pool"}',' ',mypools["WBTC"],sep='')
-        print('etherscan_wallet_main{wallet=','"',wallets['ACCOUNT-NAME'],'", ','poolname="UNI"',', ','type="pool"}',' ',mypools["UNI"],sep='')
-        print('etherscan_wallet_main{wallet=','"',wallets['ACCOUNT-NAME'],'", ','poolname="CRV"',', ','type="pool"}',' ',mypools["CRV"],sep='')
+        print('etherscan_wallet_main{wallet="',wallets["ACCOUNT-NAME"],'", name="ETH", type="coin"} ',myeth['ACCOUNT-NAME'],sep='')
+        print('etherscan_wallet_main{wallet="',wallets['ACCOUNT-NAME'],'", name="WBTC"',', ','type="token"} ',mytokens["WBTC"],sep='')
+        print('etherscan_wallet_main{wallet="',wallets['ACCOUNT-NAME'],'", name="UNI"',', ','type="token"} ',mytokens["UNI"],sep='')
+        print('etherscan_wallet_main{wallet="',wallets['ACCOUNT-NAME'],'", name="DAI"',', ','type="token"} ',mytokens["DAI"],sep='')
+        print('etherscan_wallet_main{wallet="',wallets['ACCOUNT-NAME'],'", name="DPI"',', ','type="token"} ',mytokens["DPI"],sep='')
+        print('etherscan_wallet_main{wallet="',wallets['ACCOUNT-NAME'],'", poolname="WBTC"',', ','type="pool"} ',mypools["WBTC"],sep='')
+        print('etherscan_wallet_main{wallet="',wallets['ACCOUNT-NAME'],'", poolname="UNI"',', ','type="pool"} ',mypools["UNI"],sep='')
+        print('etherscan_wallet_main{wallet="',wallets['ACCOUNT-NAME'],'", poolname="CRV"',', ','type="pool"} ',mypools["CRV"],sep='')
 
         sys.stdout = original_stdout # Reset the standard output to its original value
 
@@ -59,6 +59,8 @@ def eth_balance():
     balances = {}
     for name, wallet in wallets.items():
         res = requests.get(baseurl+modaccount+action+wallet+"&"+address+wallet+tag+apikey).json()
+        if res['status'] == "0":
+            sys.exit("Invalid API-Key")
         json_dump = json.dumps(res, sort_keys = True, indent = 4)
         print(res)
         json_object = json.loads(json_dump)

@@ -20,6 +20,7 @@ with open("user.json") as u:
     for i in user["ethereum"]:
         json_dump = json.dumps(i)
         json_object = json.loads(json_dump)
+    
 
 def buildmetric():
     gasfee = gas_price()
@@ -30,9 +31,9 @@ def buildmetric():
         
             print('# HELP etherscan_gas Gas Price Safe, Proposed and Fast fetched via etherscan.')
             print('# TYPE etherscan_gas gauge')
-            print('etherscan_gas{block=','"',gasfee['LastBlock'],'"',', ''speed="slow"' '}'' ',gasfee["SafeGasPrice"],sep='')
-            print('etherscan_gas{block=','"',gasfee["LastBlock"],'"',', ''speed="medium"' '}'' ',gasfee["ProposeGasPrice"],sep='')
-            print('etherscan_gas{block=','"',gasfee["LastBlock"],'"',', ''speed="fast"' '}'' ',gasfee["FastGasPrice"],sep='')
+            print('etherscan_gas{block="',gasfee['LastBlock'],'", speed="slow"} ',gasfee["SafeGasPrice"],sep='')
+            print('etherscan_gas{block="',gasfee["LastBlock"],'", speed="medium"} ',gasfee["ProposeGasPrice"],sep='')
+            print('etherscan_gas{block="',gasfee["LastBlock"],'", speed="fast"} ',gasfee["FastGasPrice"],sep='')
             sys.stdout = original_stdout # Reset the standard output to its original value
 
 
@@ -40,8 +41,10 @@ def gas_price():
     gasinfo = {}
     action = 'gasoracle&'
     res = requests.get(baseurl+modgas+action+apikey).json()
+    if res['status'] == str(0):
+        sys.exit("Invalid API-Key")
     json_dump = json.dumps(res)
-    print(res)
+    
     json_object = json.loads(json_dump)
     gasinfo = (json_object["result"])
     return(gasinfo)

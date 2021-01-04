@@ -1,0 +1,6 @@
+# Configuration Files
+user.json
+
+# Local Prom Metric File for debugging purpose
+eth-net-metrics.prom
+eth-balance-metrics.prom
