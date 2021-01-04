@@ -1,0 +1,59 @@
+{
+    "firstName": "Test",
+    "lastName": "User",
+    "apikeys": {
+        "etherscan": "472FYRTP74CGI4IPRKSYG1FX27X3DTX4B6"
+    },
+    "ethereum": [
+        {
+            "name": "ACCOUNT-NAME",
+            "assetname": "ETH",
+            "address": "0x1357926e94986F5255d0bE39Cea62D5c78FB143B",
+            "tokens": [
+                {
+                    "tokenname": "UNI",
+                    "address": "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984"
+                },
+                {
+                    "tokenname": "DPI",
+                    "address": "0x1494CA1F11D487c2bBe4543E90080AeBa4BA3C2b"
+                },
+                {
+                    "tokenname": "DAI",
+                    "address": "0x6b175474e89094c44da98b954eedeac495271d0f"
+                },
+                {
+                    "tokenname": "WBTC",
+                    "address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
+                }
+            ],
+            "pools": [
+                {
+                    "poolname": "WBTC",
+                    "address": "0xBb2b8038a1640196FbE3e38816F3e67Cba72D940"
+                },
+                {
+                    "poolname": "UNI",
+                    "address": "0xd3d2E2692501A5c9Ca623199D38826e513033a17"
+                },
+                {
+                    "poolname": "CRV",
+                    "address": "0x3dA1313aE46132A397D90d95B1424A9A7e3e0fCE"
+                }
+            ]
+        },
+        {
+            "name": "Trading",
+            "assetname": "ETH",
+            "address": "0x7B8Fc80F05a81ce65381E73e8D564b43d6cE655b",
+            "tokens": [],
+            "pools": []
+        }
+    ],
+    "bitcoin": [
+        {
+            "name": "Main",
+            "address": "14MYFxLRaittAjQd66YeVxDdvggmi1egNH"
+        }
+    ]
+}
