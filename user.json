@@ -2,7 +2,7 @@
     "firstName": "Test",
     "lastName": "User",
     "apikeys": {
-        "etherscan": "472FYRTP74CGI4IPRKSYG1FX27X3DTX4B6"
+        "etherscan": "YOUR-ETHERSCAN_KEY"
     },
     "ethereum": [
         {
