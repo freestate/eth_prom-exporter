@@ -1,5 +1,0 @@
-# HELP etherscan_gas Gas Price Safe, Proposed and Fast fetched via etherscan.
-# TYPE etherscan_gas gauge
-etherscan_gas{block="11589159", speed="slow"} 114
-etherscan_gas{block="11589159", speed="medium"} 114
-etherscan_gas{block="11589159", speed="fast"} 206
