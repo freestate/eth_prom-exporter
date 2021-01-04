@@ -1,0 +1,10 @@
+# HELP etherscan_wallet_main Balance of eth wallet fetched via etherscan.
+# TYPE etherscan_wallet_main gauge
+etherscan_wallet_main{wallet="0x1357926e94986F5255d0bE39Cea62D5c78FB143B", name="ETH", type="coin"} 0.0
+etherscan_wallet_main{wallet="0x1357926e94986F5255d0bE39Cea62D5c78FB143B", name="WBTC", type="token"} 0.0
+etherscan_wallet_main{wallet="0x1357926e94986F5255d0bE39Cea62D5c78FB143B", name="UNI", type="token"} 0.0
+etherscan_wallet_main{wallet="0x1357926e94986F5255d0bE39Cea62D5c78FB143B", name="DAI", type="token"} 0.0
+etherscan_wallet_main{wallet="0x1357926e94986F5255d0bE39Cea62D5c78FB143B", name="DPI", type="token"} 0.0
+etherscan_wallet_main{wallet="0x1357926e94986F5255d0bE39Cea62D5c78FB143B", poolname="WBTC", type="pool"} 0.0
+etherscan_wallet_main{wallet="0x1357926e94986F5255d0bE39Cea62D5c78FB143B", poolname="UNI", type="pool"} 0.0
+etherscan_wallet_main{wallet="0x1357926e94986F5255d0bE39Cea62D5c78FB143B", poolname="CRV", type="pool"} 0.0

@@ -40,7 +40,7 @@ def gas_price():
     gasinfo = {}
     action = 'gasoracle&'
     res = requests.get(baseurl+modgas+action+apikey).json()
-    json_dump = json.dumps(res, sort_keys = True, indent = 4)
+    json_dump = json.dumps(res)
     print(res)
     json_object = json.loads(json_dump)
     gasinfo = (json_object["result"])

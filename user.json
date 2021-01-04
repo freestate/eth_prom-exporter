@@ -2,7 +2,7 @@
     "firstName": "Test",
     "lastName": "User",
     "apikeys": {
-        "etherscan": "YOUR-ETHERSCAN_KEY"
+        "etherscan": "Your-API-KEY-HERE"
     },
     "ethereum": [
         {
