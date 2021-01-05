@@ -28,9 +28,13 @@ def buildmetric():
 
     with open('eth-net-metrics.prom', 'w') as f:
             sys.stdout = f # Change the standard output to the file we created.
-        
+
+            print('# HELP etherscan_blockheight Gas Price Safe, Proposed and Fast fetched via etherscan.')                                
+            print('# TYPE etherscan_blockheight counter')
+            print('etherscan_blockheight{block="height"} ',gasfee['LastBlock'],sep='')
             print('# HELP etherscan_gas Gas Price Safe, Proposed and Fast fetched via etherscan.')
             print('# TYPE etherscan_gas gauge')
+            print('etherscan_gas{block="',gasfee['LastBlock'],'", speed="slow"} ',gasfee["SafeGasPrice"],sep='')
             print('etherscan_gas{block="',gasfee['LastBlock'],'", speed="slow"} ',gasfee["SafeGasPrice"],sep='')
             print('etherscan_gas{block="',gasfee["LastBlock"],'", speed="medium"} ',gasfee["ProposeGasPrice"],sep='')
             print('etherscan_gas{block="',gasfee["LastBlock"],'", speed="fast"} ',gasfee["FastGasPrice"],sep='')
